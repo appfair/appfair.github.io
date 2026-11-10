@@ -50,7 +50,7 @@ After the tag run finishes, inspect the release assets:
 
 <InstructionTabs id="release-assets" label="Inspect release assets" methods={assetMethods} />
 
-For both catalog channels, expect the base app’s Android `.aab`, iOS `.ipa`, package metadata, and—when replacing screenshots—`gallery.json` and `screenshots.tar.xz`. CI may publish other targets too. Read the workflow result, not just the presence of a release page.
+For both catalog channels, expect the base app’s Android `.aab`, iOS `.ipa`, package metadata, and, when replacing screenshots, `gallery.json` and `screenshots.tar.xz`. CI may publish other targets too. Check the workflow result to confirm that the build succeeded.
 
 After CI finishes, update the release notes:
 

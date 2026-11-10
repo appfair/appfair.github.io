@@ -33,3 +33,12 @@ For translations, use the target language’s grammar; do not insert the English
 Use short, direct answers and concrete instructions. Keep commands copyable, distinguish
 optional tools from required steps, and link to the detailed procedure instead of
 repeating it. Preserve explicit FAQ anchor IDs when revising question text.
+
+## Prose
+
+Follow the Daybrite writing style: lead with the point, use plain words, and state
+what the project does. Replace slogans and broad claims with specific facts.
+Use sentence-case headings and active voice. Avoid promotional contrasts,
+rhythmic lists of absences, filler transitions, and em dashes that join clauses.
+Distinguish available features from plans. Preserve quotations and authored
+publication text when editing site copy.

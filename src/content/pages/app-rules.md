@@ -11,7 +11,7 @@ App Fair apps are free to download and use. No in-app purchases, subscriptions t
 
 ## No advertising
 
-Apps contain no ads or advertising SDKs. Their purpose is to provide the app’s features, not to sell your attention.
+Apps contain no ads or advertising SDKs.
 
 ## No analytics or tracking
 

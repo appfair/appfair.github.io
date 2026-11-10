@@ -2,11 +2,10 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import HeroVisual from '../components/HeroVisual.astro';
 import StoreBadges from '../components/StoreBadges.astro';
 import PostCard from '../components/PostCard.astro';
 import { site } from '../lib/site';
-import { useTranslations, localizePath, DEFAULT_LOCALE, resolveLocale } from '../i18n';
+import { useTranslations, localizePath, resolveLocale } from '../i18n';
 
 const locale = resolveLocale(Astro.currentLocale);
 const { t, tr } = useTranslations(locale);
@@ -31,7 +30,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
           <a class="btn btn-ghost" href={localizePath('/blog/', locale)}>{t('home.readBlog')}</a>
         </div>
       </div>
-      <div class="hero-visual"><HeroVisual /></div>
     </div>
     <div class="container hero-stores">
       <p>{t('home.stores.body')}</p>
@@ -86,7 +84,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
         <h2>{t('home.how.heading')}</h2>
         <p class="how-note">{t('home.how.note')}</p>
       </div>
-      <div>
+      <div class="how-steps">
         <ol class="steps">
           {steps.map((s, i) => (
             <li class="step">

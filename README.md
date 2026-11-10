@@ -29,7 +29,7 @@ src/
 ├── content.config.ts   the two collections' frontmatter schemas
 ├── i18n/               en.json and one JSON table per locale, plus the t() helper
 ├── layouts/            BaseLayout: <head>, nav, footer, theme + design bootstrap
-├── components/         Nav, Footer, ThemeToggle, LangSwitcher, Search, HeroVisual, …
+├── components/         Nav, Footer, ThemeToggle, LangSwitcher, Search, …
 ├── pages/              routes: index, blog/, blog/[slug], blog/rss.xml, [...slug], og/, 404
 ├── styles/             global.css (system), themes.css (styles × light/dark), layouts.css
 └── lib/                site constants (URLs, social links, stores), post helpers
@@ -65,14 +65,13 @@ production preview to check navigation, search and layouts with and without Java
 
 ## Design picker (development only)
 
-The site's design is **Midnight** (style) + **Split** (layout) + **Catalog** (hero graphic), set as `design`
+The site's design is **Fairground** (style) + **Split** (layout), set as `design`
 in `src/lib/site.ts`. In `npm run dev` a **Design** button in the bottom-right corner switches between the
-alternative styles, layouts and graphics that were built for comparison. It sets `data-style` /
+alternative styles and layouts that were built for comparison. The homepage hero is text-only;
+the retained graphic options have no effect. It sets `data-style` /
 `data-layout` / `data-visual` on `<html>`, remembers the choice in `localStorage`, and honours
 `?style=…&layout=…&visual=…&theme=…` in the URL. Production builds (`npm run build`, and so the deployed
-site) render neither the picker nor its bootstrap script, and `HeroVisual.astro` emits only the chosen
-graphic, so they always show the default. In dev, `?popup=free|noAds|openSource|noTracking` opens one of
-the graphic's dialogs on load, for reviewing it without a pointer.
+site) render neither the picker nor its bootstrap script, so they always show the default.
 
 To retire the alternatives: delete `src/components/DesignPicker.astro`, its two `showPicker` includes in
 `BaseLayout.astro`, `designOptions` in `src/lib/site.ts`, the non-default variants in `HeroVisual.astro`,
