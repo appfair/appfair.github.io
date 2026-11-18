@@ -179,6 +179,90 @@ Opaque platform-specific configuration in the `metadata` object:
 { "metadata": { "entitlements": { ... }, "infoPlist": { ... }, "manifest": { ... } } }
 ```
 
+## Store Catalogs
+
+An App Index can also be an app store's catalog. [App Fair](https://appfair.net) reads App Index
+documents as its primary catalog format: each Android device gets the `android` builds and each
+iOS device gets the `ios` builds. A landing page needs to describe an app; a store also needs to
+know where the installable package is and how to check it. These optional fields supply that,
+and a landing-page document can leave all of them out.
+
+### Catalog
+
+A top-level `catalog` object describes the catalog itself:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | localized string | The catalog's display name |
+| `description` | localized string | What the catalog offers |
+| `homepage` | string (URI) | The catalog's website |
+| `mirrors` | string array | Alternate URLs serving this same document, tried in order when the primary fails |
+| `categories` | object | Labels (`{ "name": localized string }`) for the category keys apps use |
+| `antiFeatures` | object | Labels (`name`, `description`) for the anti-feature keys apps declare |
+| `rank` | string array | App `name`s in editorial order, highest first |
+
+### App Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `categories` | string array | Category keys, labeled by `catalog.categories` |
+| `antiFeatures` | string array | Anti-feature keys ([F-Droid's vocabulary](https://f-droid.org/docs/Anti-Features/)) |
+| `developer` | object | `name`, `url`, `email` |
+
+### Platform Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `released` | string (date-time) | When this version was published |
+| `minimumSystemVersion` | string | The oldest OS version the build runs on (iOS; Android uses `minSdk`) |
+| `distribution` | object | The installable packages, by kind (`apk`, `adp`) |
+
+An Android build's `distribution.apk`:
+
+```json
+{
+  "distribution": {
+    "apk": {
+      "url": "Net-Skip-release.apk",
+      "size": 9284057,
+      "digest": "sha256:4bdf97be…",
+      "signer": "sha256:43238d51…",
+      "versionCode": 228,
+      "minSdk": 29,
+      "nativecode": ["arm64-v8a"]
+    }
+  }
+}
+```
+
+`url` is absolute or relative to `source.release`. A store verifies the file's `digest` and its
+signing certificate's `signer` before handing it to the installer.
+
+An iOS build distributed through an alternative app marketplace (the EU, Japan, and Brazil) has a
+`distribution.adp`, for its Apple *alternative distribution package*:
+
+```json
+{
+  "distribution": {
+    "adp": {
+      "appleItemId": "1640618584",
+      "appleVersionId": "869899373",
+      "url": "https://appfair.net/marketplace/packages/1640618584/",
+      "size": 805788,
+      "requiredDeviceCapabilities": ["arm64"],
+      "shareUrl": "https://appfair.net/apps/net-skip"
+    }
+  }
+}
+```
+
+`appleItemId` is the app's "Apple ID" in App Store Connect, which MarketplaceKit installs by.
+`appleVersionId` names the packaged version and lets a marketplace offer automatic updates. `url`
+is the package's base URL: the folder that holds `manifest.json`, `signature`, `variant/` and
+`delta/`. iOS downloads a package only from the marketplace's registered domain, so a marketplace
+uses its own copy for a URL on any other domain. An iOS entry without `adp` (an App Store-only
+app) is not offered by a marketplace.
+
 ## Generation
 
 ```bash

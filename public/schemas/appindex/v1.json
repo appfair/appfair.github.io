@@ -31,6 +31,10 @@
       "description": "One or more application entries in this index.",
       "items": { "$ref": "#/$defs/app" },
       "minItems": 1
+    },
+    "catalog": {
+      "$ref": "#/$defs/catalog",
+      "description": "Store metadata for an index published as an app catalog: the catalog's name, mirrors, category and anti-feature labels, and editorial ranking. A landing-page document omits it."
     }
   },
   "additionalProperties": false,
@@ -237,9 +241,167 @@
           "type": "object",
           "description": "SPDX Software Bill of Materials for this platform build. Conforms to SPDX 2.3 JSON format (https://spdx.github.io/spdx-spec/v2.3/).",
           "additionalProperties": true
+        },
+        "released": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this version was published."
+        },
+        "minimumSystemVersion": {
+          "type": "string",
+          "description": "The oldest operating system version this build runs on, e.g. \"17.0\" on iOS. Android builds give `distribution.apk.minSdk` instead."
+        },
+        "distribution": {
+          "$ref": "#/$defs/distribution",
+          "description": "The installable artifacts a store needs to install this build."
         }
       },
       "additionalProperties": true
+    },
+
+    "distribution": {
+      "type": "object",
+      "description": "How a store installs a platform build. Each key is a package kind; a store ignores kinds it does not install.",
+      "properties": {
+        "apk": { "$ref": "#/$defs/apk" },
+        "adp": { "$ref": "#/$defs/adp" }
+      },
+      "additionalProperties": true
+    },
+
+    "apk": {
+      "type": "object",
+      "description": "An Android package, which a store downloads, verifies, and hands to the system installer.",
+      "required": ["url", "versionCode"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri-reference",
+          "description": "The APK, absolute or relative to `source.release`."
+        },
+        "size": { "type": "integer", "minimum": 1, "description": "File size in bytes." },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+:[a-fA-F0-9]+$",
+          "description": "The file's hash as \"algorithm:hex\", verified before installing."
+        },
+        "signer": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+:[a-fA-F0-9]+$",
+          "description": "The hash of the APK's signing certificate as \"sha256:hex\". A store installs the file only when its signer matches."
+        },
+        "versionCode": { "type": "integer", "minimum": 1 },
+        "minSdk": { "type": "integer", "minimum": 1 },
+        "targetSdk": { "type": "integer", "minimum": 1 },
+        "maxSdk": { "type": "integer", "minimum": 1 },
+        "nativecode": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "The native ABIs the APK carries. Empty or absent: it runs on any."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "adp": {
+      "type": "object",
+      "description": "An Apple alternative distribution package, which an alternative app marketplace installs through MarketplaceKit.",
+      "required": ["appleItemId"],
+      "properties": {
+        "appleItemId": {
+          "type": "string",
+          "pattern": "^[0-9]+$",
+          "description": "The app's Apple item id: the \"Apple ID\" App Store Connect shows for it."
+        },
+        "appleVersionId": {
+          "type": "string",
+          "pattern": "^[0-9]+$",
+          "description": "The packaged version's Apple version id (the package manifest's `appleVersionId`). It lets a marketplace offer automatic updates."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The package's base URL (the folder holding manifest.json, signature, variant/ and delta/) or its manifest.json. The system downloads packages only from the marketplace's registered domain, so a marketplace substitutes its own copy for a URL anywhere else."
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "An approximate download size in bytes: any one variant's."
+        },
+        "requiredDeviceCapabilities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "The package manifest's requiredDeviceCapabilities, e.g. \"arm64\"."
+        },
+        "ageRatingRank": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The app's age rating rank, compared with the device's maximum allowed rating."
+        },
+        "shareUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The app's page on the marketplace's website, offered in the Home Screen share sheet."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "catalog": {
+      "type": "object",
+      "description": "A catalog's own metadata.",
+      "properties": {
+        "name": { "$ref": "#/$defs/localizedString", "description": "The catalog's display name." },
+        "description": { "$ref": "#/$defs/localizedString", "description": "What the catalog offers." },
+        "homepage": { "type": "string", "format": "uri", "description": "The catalog's website." },
+        "mirrors": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" },
+          "description": "Alternate URLs serving this same document, tried in order when the primary URL fails."
+        },
+        "categories": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/label" },
+          "description": "Labels for the category keys apps list in `categories`."
+        },
+        "antiFeatures": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/label" },
+          "description": "Labels for the anti-feature keys apps declare in `antiFeatures` (F-Droid's vocabulary: Ads, Tracking, NonFreeNet, …)."
+        },
+        "rank": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "App `name`s in editorial order, highest first. Apps it leaves out follow, newest first."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "label": {
+      "type": "object",
+      "description": "A localized label for a key a catalog defines: a category or an anti-feature.",
+      "required": ["name"],
+      "properties": {
+        "name": { "$ref": "#/$defs/localizedString", "description": "The display name." },
+        "description": {
+          "$ref": "#/$defs/localizedString",
+          "description": "A longer explanation, shown when the label is tapped."
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "developer": {
+      "type": "object",
+      "description": "Who makes the app.",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "email": { "type": "string", "format": "email" }
+      },
+      "additionalProperties": false
     },
 
     "source": {
@@ -311,6 +473,20 @@
         "source": {
           "$ref": "#/$defs/source",
           "description": "Source code repository information."
+        },
+        "categories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Category keys, labeled by the document's `catalog.categories`."
+        },
+        "antiFeatures": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Anti-feature keys (F-Droid's vocabulary), labeled by the document's `catalog.antiFeatures`."
+        },
+        "developer": {
+          "$ref": "#/$defs/developer",
+          "description": "Who makes the app."
         }
       },
       "additionalProperties": true
