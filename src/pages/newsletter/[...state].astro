@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations, localizePath } from '../../i18n';
+import { newsletterStates } from '../../lib/newsletter';
+
+export function getStaticPaths() {
+  return [undefined, ...newsletterStates].map(state => ({ params: { state } }));
+}
+const state = Astro.params.state ?? 'signup';
+const { t, locale } = useTranslations(Astro.currentLocale);
+const title = t(`newsletter.${state}.title`);
+const description = t(`newsletter.${state}.body`);
+const showForm = ['signup', 'invalid-email', 'retry'].includes(state);
+const api = import.meta.env.PUBLIC_NEWSLETTER_API ?? 'https://api.appfair.cloud';
+---
+<BaseLayout title={title} description={description} searchable={state === 'signup' && locale === 'en'}>
+  <section class="container newsletter">
+    <h1>{title}</h1>
+    <p class="lead">{description}</p>
+    {showForm ? <form method="post" action={new URL('/v1/newsletter/signup', api).href}>
+      <input type="hidden" name="lang" value={locale} />
+      <label for="newsletter-email">{t('newsletter.email')}</label>
+      <input id="newsletter-email" name="email" type="email" autocomplete="email" maxlength="254" required dir="auto" />
+      <div class="trap" aria-hidden="true" inert><label>{t('newsletter.website')}<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+      <button type="submit" class="btn btn-primary">{t('newsletter.link')}</button>
+      <a href={localizePath('/privacy/', locale)}>{t('footer.privacy')}</a>
+    </form> : <a href={localizePath(state === 'expired' ? '/newsletter/' : '/', locale)}>{state === 'expired' ? t('newsletter.link') : t('nav.home')}</a>}
+  </section>
+</BaseLayout>
+<style>
+  .newsletter { max-width: 40rem; padding-block: clamp(3rem, 8vw, 6rem); }
+  h1 { line-height: 1.12; }
+  .lead { margin: 1rem 0 2rem; }
+  form label { display: block; font-weight: 600; }
+  #newsletter-email { display: block; box-sizing: border-box; width: 100%; max-width: 30rem; margin: .4rem 0 1.25rem; padding: .75rem; font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 7px; }
+  form a { margin-inline-start: 1rem; }
+  .trap { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+</style>

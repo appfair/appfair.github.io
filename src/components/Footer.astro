@@ -5,6 +5,7 @@ import { useTranslations, localizePath } from '../i18n';
 const locale = Astro.currentLocale;
 const { t } = useTranslations(locale);
 const project = [
+  { href: localizePath('/newsletter/', locale), label: t('newsletter.link') },
   { href: localizePath('/blog/', locale), label: t('footer.blog') },
   { href: localizePath('/donate/', locale), label: t('footer.donate') },
   { href: localizePath('/app-rules/', locale), label: t('footer.appRules') },

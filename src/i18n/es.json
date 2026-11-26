@@ -1,4 +1,33 @@
 {
+  "newsletter": {
+    "link": "Recibir novedades",
+    "email": "Correo electrónico",
+    "website": "Sitio web",
+    "signup": {
+      "title": "Novedades de App Fair por correo",
+      "body": "Recibe de vez en cuando noticias de App Fair y anuncios de nuevos lanzamientos. Te enviaremos un enlace para confirmar tu dirección."
+    },
+    "pending": {
+      "title": "Revisa tu bandeja de entrada",
+      "body": "Si tu dirección necesita confirmación, busca un correo de App Fair. El enlace es válido durante 24 horas. Si no lo encuentras, revisa la carpeta de correo no deseado."
+    },
+    "confirmed": {
+      "title": "Tu suscripción está confirmada",
+      "body": "Gracias por confirmar. Recibirás noticias de App Fair y avisos de nuevos lanzamientos."
+    },
+    "expired": {
+      "title": "El enlace ha caducado o ya se ha utilizado",
+      "body": "Si aún no has confirmado la suscripción, solicita un enlace nuevo."
+    },
+    "invalid-email": {
+      "title": "Revisa tu dirección de correo",
+      "body": "Introduce una dirección de correo completa para solicitar un enlace de confirmación."
+    },
+    "retry": {
+      "title": "Vuelve a intentarlo en un momento",
+      "body": "No pudimos procesar la solicitud. Espera un minuto y vuelve a intentarlo."
+    }
+  },
   "catalogSubmission": {
     "prepare": "Preparar el envío",
     "release": "Etiqueta o URL de la versión en GitHub",

@@ -14,6 +14,8 @@ We do not use visitor analytics or third-party trackers on appfair.org. Hosting 
 
 The website stores preferences and developer-guide entries in your browser. You can clear them through your browser settings. When you edit an app token or ask the guide to suggest one, it sends the proposed token to GitHub to check its availability. When you choose to prepare a catalog submission, the guide reads the public release and catalog files from GitHub. You submit the pull request on GitHub using your own account. When you play a talk or podcast, your browser requests the recording from its host. These services and the sites you choose to visit, including app stores and donation providers, process requests under their own privacy policies.
 
+When you [sign up for App Fair updates](/newsletter/), we use Cloudflare to store your email address and send a confirmation link. The link expires after 24 hours. We delete expired requests in a daily cleanup. After you confirm, we keep your email address and confirmation date to send project news and release updates. To leave the list, contact [privacy@appfair.net](mailto:privacy@appfair.net).
+
 ## Developers
 
 Developer submissions may include names, contact details, source repositories, app packages and listing information. Public submissions and app listings are public; private correspondence is not published as a matter of course. Packages and related information may be provided to distribution platforms and security review services where needed for distribution or review.

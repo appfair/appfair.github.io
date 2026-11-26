@@ -1,4 +1,33 @@
 {
+  "newsletter": {
+    "link": "接收最新动态",
+    "email": "电子邮箱",
+    "website": "网站",
+    "signup": {
+      "title": "App Fair 邮件订阅",
+      "body": "不定期接收 App Fair 新闻和应用发布消息。我们会向您发送链接以确认邮箱地址。"
+    },
+    "pending": {
+      "title": "请查看收件箱",
+      "body": "如果您的邮箱需要确认，请查收 App Fair 发来的邮件。链接在 24 小时内有效。如果没有收到，请检查垃圾邮件文件夹。"
+    },
+    "confirmed": {
+      "title": "订阅已确认",
+      "body": "感谢确认。您将不定期收到 App Fair 新闻和发布动态。"
+    },
+    "expired": {
+      "title": "链接已失效或已使用",
+      "body": "如果您尚未确认订阅，请申请新的链接。"
+    },
+    "invalid-email": {
+      "title": "请检查邮箱地址",
+      "body": "请输入完整的邮箱地址以获取确认链接。"
+    },
+    "retry": {
+      "title": "请稍后重试",
+      "body": "暂时无法处理您的请求。请稍等一分钟再试。"
+    }
+  },
   "catalogSubmission": {
     "prepare": "准备提交",
     "release": "发布标签或 GitHub 发布页网址",

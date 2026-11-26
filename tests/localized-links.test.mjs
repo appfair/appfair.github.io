@@ -41,7 +41,7 @@ test('every chrome translation and its placeholders are present in each locale',
     child && typeof child === 'object' && !Array.isArray(child) ? Object.entries(flatten(child, `${prefix}${key}.`)) : [[prefix + key, child]]));
   const read = locale => flatten(JSON.parse(readFileSync(new URL(`../src/i18n/${locale}.json`, import.meta.url))));
   const english = read('en');
-  const keys = Object.keys(english).filter(key => /^(nav|footer|theme|blog|page|notFound|search|a11y|docs|copy)\./.test(key));
+  const keys = Object.keys(english).filter(key => /^(nav|footer|theme|blog|page|notFound|search|a11y|docs|copy|newsletter)\./.test(key));
   const placeholders = value => [...value.matchAll(/\{\w+\}/g)].map(match => match[0]).sort();
   for (const locale of LOCALE_CODES) {
     const translated = read(locale);
