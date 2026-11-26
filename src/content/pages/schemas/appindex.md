@@ -141,7 +141,7 @@ Cross-platform URLs. Each value is a localized URL map:
 
 ## Distribution Channels
 
-Each platform declares distribution channels in the `channels` object. Keys are channel identifiers. Well-known keys include `appleappstore`, `googleplaystore`, `fdroid`, `altstore`, `testflight`, `amazonappstore`, `homebrew`, `flatpak`, and `microsoftstore`.
+Each platform declares distribution channels in the `channels` object. Keys are channel identifiers. Well-known keys include `appleappstore`, `googleplaystore`, `testflight`, `amazonappstore`, `homebrew`, `flatpak`, and `microsoftstore`.
 
 ```json
 { "channels": { "appleappstore": { "id": "1640618584", "url": "https://apps.apple.com/app/id1640618584" } } }
@@ -206,7 +206,7 @@ A top-level `catalog` object describes the catalog itself:
 | Field | Type | Description |
 |-------|------|-------------|
 | `categories` | string array | Category keys, labeled by `catalog.categories` |
-| `antiFeatures` | string array | Anti-feature keys ([F-Droid's vocabulary](https://f-droid.org/docs/Anti-Features/)) |
+| `antiFeatures` | string array | Keys such as `Ads` or `Tracking`, with labels in `catalog.antiFeatures` |
 | `developer` | object | `name`, `url`, `email` |
 
 ### Platform Fields

@@ -107,8 +107,8 @@
         {
           "icon": "globe",
           "tone": "amber",
-          "title": "Disponible en Todas Partes",
-          "body": "Las aplicaciones de App Fair se distribuyen tanto a través de las tiendas de aplicaciones comerciales, la App Store de Apple y Google Play Store, como en mercados alternativos como AltStore y F-Droid."
+          "title": "Tiendas de aplicaciones",
+          "body": "Las aplicaciones de App Fair están disponibles en la App Store de Apple y en Google Play."
         },
         {
           "icon": "tag-off",
@@ -156,12 +156,9 @@
       }
     },
     "stores": {
-      "body": "Cada versión se envía al App Fair para su revisión y aprobación antes de entrar en el catálogo, y después el App Fair la publica en la App Store y Google Play. La distribución a través de F-Droid y AltStore está en la hoja de ruta.",
+      "body": "Cada versión se envía al App Fair para su revisión y aprobación antes de entrar en el catálogo, y después el App Fair la publica en la App Store y Google Play.",
       "app-store": "Descárgalo en el App Store",
-      "play-store": "Disponible en Google Play",
-      "f-droid": "Disponible en F-Droid",
-      "altstore": "Disponible en AltStore",
-      "roadmap": "En la hoja de ruta"
+      "play-store": "Disponible en Google Play"
     },
     "cornerstones": {
       "eyebrow": "Los cuatro pilares",
@@ -197,7 +194,7 @@
         {
           "icon": "code",
           "title": "Construir a la vista de todos",
-          "body": "Los desarrolladores publican el código fuente de la aplicación bajo GPL-2.0-or-later. El código fuente de cada dependencia debe ser público y tener una licencia de software libre compatible."
+          "body": "Los desarrolladores publican el código fuente de la aplicación bajo la Licencia Pública General de GNU. El código fuente de cada dependencia debe ser público y tener una licencia de software libre compatible."
         },
         {
           "icon": "package-check",

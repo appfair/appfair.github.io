@@ -14,7 +14,7 @@ import InstructionTabs from '../../../components/InstructionTabs.astro';
 
 **A flag or template feature is missing.** Check which binary runs with `command -v day`. Run `cargo install day-cli` to install the current release, then retry. If the feature is still unavailable, report the failing command and error to the Day maintainers.
 
-**A compiler or SDK is missing.** Run `day doctor` and follow the relevant [platform requirements](https://daybrite.dev/docs/system-requirements). iOS needs macOS and Xcode; web and desktop builds do not validate mobile SDK setup.
+**A compiler or SDK is missing.** Run `day doctor` and follow the relevant [platform requirements](https://daybrite.dev/docs/reference/system-requirements/). iOS needs macOS and Xcode; web and desktop builds do not validate mobile SDK setup.
 
 ## Token
 
@@ -32,13 +32,13 @@ import InstructionTabs from '../../../components/InstructionTabs.astro';
 
 **The generated name or config is malformed.** Use `--title` for the display name, not the token. Avoid double quotes, backslashes and line breaks in the initial title because the template inserts it into TOML. Set localized display text in the generated resources afterward.
 
-**An existing project lacks a target.** Run `day project add-target <target>` and update the target list in `.github/workflows/ci.yml`. Recheck the manifest and workflow together. [Day project reference](https://daybrite.dev/docs/cli).
+**An existing project lacks a target.** Run `day project add-target <target>` and update the target list in `.github/workflows/ci.yml`. Recheck the manifest and workflow together. [Day project reference](https://daybrite.dev/docs/reference/cli/).
 
 ## Build
 
 **A local build fails.** Run `day doctor`, then reproduce with `day build --verbose`. Read the first compiler error. Confirm that Cargo dependencies and `Cargo.lock` match the committed project.
 
-**No mobile device is available.** Run `day devices list`. Start an appropriate simulator or emulator and repeat `day launch`. Follow the [iOS](https://daybrite.dev/docs/platforms/ios-uikit) or [Android](https://daybrite.dev/docs/platforms/android-mdc) setup guide.
+**No mobile device is available.** Run `day devices list`. Start an appropriate simulator or emulator and repeat `day launch`. Follow the [iOS](https://daybrite.dev/docs/reference/platforms/ios-uikit/) or [Android](https://daybrite.dev/docs/reference/platforms/android-material/) setup guide.
 
 **The walkthrough fails after UI changes.** Update the selectors, assertions and screenshots in `dayscript/demo.yaml`. Re-run the same locale and target that failed in CI. Do not remove assertions just to make publication pass.
 
@@ -71,7 +71,7 @@ import InstructionTabs from '../../../components/InstructionTabs.astro';
 
 **No workflow starts.** Confirm `.github/workflows/ci.yml` was committed, Actions is enabled in repository settings, and the push matches its branch or tag triggers. Fork PR workflows may need an authorized maintainer to approve their first run.
 
-**App Fair lint fails.** Read its file-and-line annotations. For a license error, check the app’s `GPL-2.0-or-later` declaration, the [license text and source notices](/docs/getting-started/#license-and-notices), and any third-party notices. For a flavor error, check `Day-appfair.toml`. Reviewers also check dependencies, license compatibility and binary reproducibility against the [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
+**App Fair lint fails.** Read its file-and-line annotations. For a license error, check the license field in `Cargo.toml` and the app’s notices against the [license setup instructions](/docs/getting-started/#license-and-notices). Check any third-party notices too. For a flavor error, check `Day-appfair.toml`. Reviewers also check dependencies, license compatibility and binary reproducibility against the [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
 
 **Only one platform fails.** Reproduce that target. Confirm the native SDK, generated project and workflow target list agree. A passing web build is not evidence that iOS packaging works.
 

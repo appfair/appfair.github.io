@@ -107,8 +107,8 @@
         {
           "icon": "globe",
           "tone": "amber",
-          "title": "Überall verfügbar",
-          "body": "App Fair-Apps werden sowohl über die kommerziellen App-Stores – den Apple App Store und den Google Play Store – als auch über alternative Marktplätze wie AltStore und F-Droid vertrieben."
+          "title": "App-Stores",
+          "body": "App Fair-Apps sind im Apple App Store und bei Google Play erhältlich."
         },
         {
           "icon": "tag-off",
@@ -156,12 +156,9 @@
       }
     },
     "stores": {
-      "body": "Jede Version wird beim App Fair zur Prüfung und Freigabe eingereicht, bevor sie in den Katalog aufgenommen wird; anschließend veröffentlicht das App Fair sie im App Store und bei Google Play. Die Verteilung über F-Droid und AltStore ist in Planung.",
+      "body": "Jede Version wird beim App Fair zur Prüfung und Freigabe eingereicht, bevor sie in den Katalog aufgenommen wird; anschließend veröffentlicht das App Fair sie im App Store und bei Google Play.",
       "app-store": "Laden im App Store",
-      "play-store": "Jetzt bei Google Play",
-      "f-droid": "Bei F-Droid laden",
-      "altstore": "Bei AltStore laden",
-      "roadmap": "In Planung"
+      "play-store": "Jetzt bei Google Play"
     },
     "cornerstones": {
       "eyebrow": "Die vier Grundpfeiler",
@@ -197,7 +194,7 @@
         {
           "icon": "code",
           "title": "Im Offenen bauen",
-          "body": "Entwickler veröffentlichen den Quellcode der App unter GPL-2.0-or-later. Der Quellcode aller Abhängigkeiten muss unter kompatiblen freien Softwarelizenzen öffentlich zugänglich sein."
+          "body": "Entwickler veröffentlichen den Quellcode der App unter der GNU General Public License. Der Quellcode aller Abhängigkeiten muss unter kompatiblen freien Softwarelizenzen öffentlich zugänglich sein."
         },
         {
           "icon": "package-check",

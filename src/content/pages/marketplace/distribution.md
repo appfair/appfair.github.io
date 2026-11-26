@@ -32,7 +32,7 @@ Your app must not infringe on the intellectual property rights of others. You mu
 
 ### 2.1 Free and Open Source
 
-For each new app or update, the developer must publish the app’s source under the GNU General Public License, version 2 or any later version (`GPL-2.0-or-later`). All direct and transitive dependencies must have public source under licenses that meet the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract.html#guidelines) and permit distribution with the app through the requested channels. For each binary dependency, including Maven JARs, submit the source revision, build instructions, environment and evidence that the source reproduces the distributed binary. See the [developer inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
+For each new app or update, the developer must publish the app’s source under the GNU General Public License, version 2 or any later version. All direct and transitive dependencies must have public source under licenses that meet the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract.html#guidelines) and permit distribution with the app through the requested channels. For each binary dependency, including Maven JARs, submit the source revision, build instructions, environment and evidence that the source reproduces the distributed binary. See the [developer inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
 
 ### 2.2 Monetization
 

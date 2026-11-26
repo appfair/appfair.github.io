@@ -94,12 +94,9 @@
     "support": "Support the project",
     "stores": {
       "heading": "Install from the store you already use",
-      "body": "The App Fair reviews each release before publishing it to the App Store and Google Play. Distribution through F-Droid and AltStore is planned.",
+      "body": "The App Fair reviews each release before publishing it to the App Store and Google Play.",
       "app-store": "Download on the App Store",
-      "play-store": "Get it on Google Play",
-      "f-droid": "Get it on F-Droid",
-      "altstore": "Get it on AltStore",
-      "roadmap": "On the roadmap"
+      "play-store": "Get it on Google Play"
     },
     "features": {
       "eyebrow": "App rules",
@@ -121,7 +118,7 @@
           "icon": "globe",
           "tone": "amber",
           "title": "App stores",
-          "body": "Install apps from the Apple App Store or Google Play. F-Droid and AltStore distribution is planned."
+          "body": "Install apps from the Apple App Store or Google Play."
         },
         {
           "icon": "tag-off",
@@ -177,7 +174,7 @@
         {
           "icon": "code",
           "title": "Develop the app",
-          "body": "Developers publish the app’s source under GPL-2.0-or-later. Every dependency must have public source under a compatible free-software license."
+          "body": "Developers publish the app’s source under the GNU General Public License. Every dependency must have public source under a compatible free-software license."
         },
         {
           "icon": "package-check",

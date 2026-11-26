@@ -1,5 +1,6 @@
 ---
 title:  "Free App Stores and Google's Developer Registration Decree"
+description: "How Google’s proposed developer registration rules would affect independent app stores and the freedom to install software on Android."
 date:   2025-09-29
 tags: [news, blog, update, dma, app, store, google, developer]
 layout: post

@@ -4,7 +4,7 @@ const { t } = useTranslations(Astro.currentLocale);
 import Admonition from './Admonition.astro';
 import CodeBlock from './CodeBlock.astro';
 const { host, androidCommand } = Astro.props;
-const iosCommand = 'day doctor --toolkit uikit\nday launch -p ios-uikit\n# Close the app before running the walkthrough.\nday launch -p ios-uikit --script dayscript/demo.yaml';
+const iosCommand = 'day doctor --toolkit uikit\nday launch -t ios-uikit\n# Close the app before running the walkthrough.\nday launch -t ios-uikit --script dayscript/demo.yaml';
 ---
 <div class="local-testing">
   <section aria-labelledby="local-android-title" data-local-platform="android">

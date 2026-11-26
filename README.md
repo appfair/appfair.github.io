@@ -83,13 +83,13 @@ and the unused blocks in `themes.css` and `layouts.css`.
 default-locale pages carry `data-pagefind-body`, and the index is forced to one language, so a
 visitor on any locale searches the whole (English) site.
 
-## Website analytics
+## Visitor privacy
 
-Production pages load GoatCounter from the shared `BaseLayout.astro`, using
-`https://appfair.goatcounter.com/count`. The dashboard is at
-[appfair.goatcounter.com](https://appfair.goatcounter.com/); no API key is needed in the site.
-The script is omitted in development, and GoatCounter ignores localhost previews by default.
-The website privacy policy describes the analytics.
+Pages load their scripts, styles, images and search index from appfair.org. Blog recordings
+stream from their publishers when a visitor presses play. The [privacy policy](src/content/pages/privacy.md)
+describes these requests and how the developer guide uses browser storage.
+Run `node tests/privacy.browser.mjs` against a production preview to check every built page and
+a search for third-party requests. Set `SITE_URL` to the preview origin.
 
 ## License
 
@@ -179,8 +179,9 @@ code text, including edits to generated commands, and preserves whitespace. Add
 
 ### Token availability
 
-The app token field checks `https://api.github.com/users/{token}` after 600 ms without an
-edit. This unauthenticated endpoint resolves both users and organizations and supports
+Editing the app token or generating a new suggestion checks `https://api.github.com/users/{token}`
+after a 600 ms debounce. Opening the guide or restoring saved details makes no request.
+This unauthenticated endpoint resolves both users and organizations and supports
 [CORS](https://docs.github.com/en/rest/using-the-rest-api/using-cors-and-jsonp-to-make-cross-origin-requests).
 Green means a 404 (apparently available), red means an existing account, blue means checking,
 and amber means the check failed. GitHub can still reserve or reject a name at creation.

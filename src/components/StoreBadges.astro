@@ -4,14 +4,9 @@ import { useTranslations } from '../i18n';
 const { t } = useTranslations(Astro.currentLocale);
 ---
 <div class="stores">
-  {site.stores.map((s) => s.live && s.href ? (
-    <a class="store-badge" href={s.href} rel="noopener" aria-label={t(`home.stores.${s.id}`)}>
-      <img src={s.badge} alt="" height="44" loading="lazy" decoding="async" />
+  {site.stores.map((store) => (
+    <a class="store-badge" href={store.href} rel="noopener" aria-label={t(`home.stores.${store.id}`)}>
+      <img src={store.badge} alt="" height="44" loading="lazy" decoding="async" />
     </a>
-  ) : (
-    <span class="store-badge is-roadmap" role="img" aria-label={`${t(`home.stores.${s.id}`)} (${t('home.stores.roadmap')})`}>
-      <img src={s.badge} alt="" height="44" loading="lazy" decoding="async" />
-      <span class="roadmap-tag" aria-hidden="true">{t('home.stores.roadmap')}</span>
-    </span>
   ))}
 </div>

@@ -10,7 +10,7 @@ draft: false
 I was honored to be invited as a [panelist](https://www.fsf.org/news/fsf40-foundation-panel) at the FSF 40-year celebration event in Boston this weekend. Along with Paige Collings, senior speech and privacy activist from the EFF, Devin Ulibarri, the executive director of Sugar Labs, and Greg Farough, the FSF's campaigns manager, we spent an hour discussing issues around software freedom and privacy, and answered a variety of interesting questions from the audience.
 
 
-<img alt="FSF40 panel" src="https://static.fsf.org/nosvn/fsf40/celebration/panel-presentation_750x450.png" />
+<img alt="FSF40 panel" src="/assets/images/fsf40-panel-presentation.png" />
 
 Once they post video and transcription, I will reproduce it here, but until then I'll convey my notes in response to the opening question:
 

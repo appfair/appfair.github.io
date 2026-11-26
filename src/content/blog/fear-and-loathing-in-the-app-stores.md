@@ -10,9 +10,9 @@ draft: false
 I presented a talk on the FOSDEM main track in Brussels last weekend titled "Fear and Loathing in the App Stores" ([abstract](https://fosdem.org/2026/schedule/event/TYZH97-fear-loathing-app-stores/)). It was amazing to see so much interest in the topic, and I had a lot of great conversations afterwards with folk who shared the alarm at the lack of choices, competition, and freedom.
 
 <div class="video">
-  <video preload="auto" controls="controls" width="100%">
-    <source src="https://video.fosdem.org/2026/k1105/TYZH97-fear-loathing-app-stores.av1.webm#t=1" type="video/webm; codecs=&quot;av01.0.08M.08.0.110.01.01.01.0&quot;">
-    <source src="https://video.fosdem.org/2026/k1105/TYZH97-fear-loathing-app-stores.mp4#t=1" type="video/mp4">
+  <video preload="none" controls="controls" width="100%">
+    <source src="https://video.fosdem.org/2026/k1105/TYZH97-fear-loathing-app-stores.av1.webm" type="video/webm; codecs=&quot;av01.0.08M.08.0.110.01.01.01.0&quot;">
+    <source src="https://video.fosdem.org/2026/k1105/TYZH97-fear-loathing-app-stores.mp4" type="video/mp4">
   </video>
 </div>
 

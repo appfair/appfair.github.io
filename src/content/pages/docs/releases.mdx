@@ -18,13 +18,13 @@ The walkthrough in `dayscript/demo.yaml` defines named screenshots. Select the c
 iphone = ["welcome", "list"]
 ipad = ["welcome", "list"]
 
-[storefront.android-mdc.google-play-store.screenshots]
+[storefront.android-material.google-play-store.screenshots]
 default = ["welcome", "list"]
 ```
 
 Use names that your walkthrough actually captures. Test each shipped locale. App Store submissions need both required Apple device classes; keep the shared workflow’s iPhone and iPad coverage and use the [publication capture profiles](/docs/getting-started/#configure-publication) or verified replacements. The release’s `gallery.json` describes which files appear in each listing, and `screenshots.tar.xz` supplies their bytes.
 
-See Day’s [store metadata reference](https://daybrite.dev/docs/app-store-submissions) and [dayscript guide](https://daybrite.dev/docs/dayscript). [Screenshot failures](/docs/troubleshooting/#screenshots) identify the usual mismatches.
+See Day’s [store metadata reference](https://daybrite.dev/docs/how-to/app-store-submissions/) and [dayscript guide](https://daybrite.dev/docs/how-to/dayscript/). [Screenshot failures](/docs/troubleshooting/#screenshots) identify the usual mismatches.
 
 ## Create a release
 
@@ -60,12 +60,12 @@ Keep the release’s pre-release status. Pass `--tag v0.1.2` explicitly to the c
 
 ## First submission
 
-Check the [inclusion criteria](/docs/inclusion-criteria/), including the required Publisher installation and website. Open a first-app discussion, then prepare the catalog pull request. Both methods require Python 3 with virtual-environment support. The examples use `Orbit-Notes` and `v0.1.1`; substitute your app token and release tag. [Getting started](/docs/getting-started/#submit) generates commands for your app.
+Check the [inclusion criteria](/docs/inclusion-criteria/), including the required Publisher installation and website. Open a first-app discussion, then prepare the catalog pull request. Both methods require Python 3.11 or later with virtual-environment support. The examples use `Orbit-Notes` and `v0.1.1`; substitute your app token and release tag. [Getting started](/docs/getting-started/#submit) generates commands for your app.
 
 <InstructionTabs id="first-submission" label="Submit a new app" methods={firstSubmissionMethods} />
 
 > [!NOTE] Windows paths
-> On Windows, replace the virtual environment’s `bin/python` with `Scripts/python.exe`. If your fork belongs to an organization, use its name instead of your personal login in clone URLs and pull request head references.
+> On Windows, create the environment with `python -m venv` and replace its `bin/python` path with `Scripts/python.exe`. If your fork belongs to an organization, use its name instead of your personal login in clone URLs and pull request head references.
 
 The file is `apps/<token>.yaml`. Its core fields are:
 
@@ -77,7 +77,7 @@ commit: FULL_40_CHARACTER_COMMIT_HASH
 distribution:
   ios-uikit:
     - apple-app-store
-  android-mdc:
+  android-material:
     - google-play-store
 ```
 
@@ -89,10 +89,10 @@ The [catalog contribution reference](https://github.com/appfair/appfair-apps/blo
 
 Keep the app token and store identities. Release a new version from the app repository, wait for its assets, then update the existing catalog file.
 
-These commands assume the first submission created `appfair-submission/`, an `origin` remote pointing to your personal fork, an `upstream` remote pointing to the App Fair, and `../appfair-submit-venv/` containing Python and PyYAML. Inspect `git remote -v` and adapt if your clone differs. Start with a clean working tree.
+These commands assume the first submission created `appfair-apps/`, an `origin` remote pointing to your personal fork, an `upstream` remote pointing to the App Fair, and `../appfair-submit-venv/` containing Python and PyYAML. Inspect `git remote -v` and adapt if your clone differs. Start with a clean working tree.
 
 ```sh
-cd appfair-submission
+cd appfair-apps
 git remote -v
 git fetch upstream main
 git switch -c update-Orbit-Notes-v0.1.2 upstream/main

@@ -8,7 +8,8 @@ export function setupSubmissionChecklist() {
   const list = document.querySelector<HTMLElement>('#checklist-steps')!;
   const status = document.querySelector<HTMLElement>('#checklist-status')!;
   const storageNote = document.querySelector<HTMLElement>('#storage-note')!;
-  const checkToken = setupTokenAvailability(form.elements.namedItem('token') as HTMLInputElement, document.getElementById('token-availability')!);
+  const tokenInput = form.elements.namedItem('token') as HTMLInputElement;
+  const checkToken = setupTokenAvailability(tokenInput, document.getElementById('token-availability')!);
   const host = detectHost(navigator.userAgent);
   const copyTemplate = document.querySelector<HTMLTemplateElement>('#code-copy-template');
   const copyMessages = copyTemplate?.dataset.copyMessages && JSON.parse(copyTemplate.dataset.copyMessages);
@@ -21,7 +22,6 @@ export function setupSubmissionChecklist() {
   }
   function fillForm() {
     for (const [name, value] of Object.entries(state.values)) (form.elements.namedItem(name) as HTMLInputElement | RadioNodeList).value = value;
-    checkToken();
   }
   function render() {
     for (const step of steps(state.values)) {
@@ -92,9 +92,8 @@ export function setupSubmissionChecklist() {
     } else list.hidden = invalid;
   }
   function update() {
-    checkToken();
     const values = {
-      token: (form.elements.namedItem('token') as HTMLInputElement).value.trim(),
+      token: tokenInput.value.trim(),
       title: (form.elements.namedItem('title') as HTMLInputElement).value.trim(),
       host: (form.elements.namedItem('host') as RadioNodeList).value,
     };
@@ -105,12 +104,14 @@ export function setupSubmissionChecklist() {
     render(); persist();
   }
   fillForm(); render(); persist();
+  tokenInput.addEventListener('input', checkToken);
   form.addEventListener('input', update);
   form.addEventListener('change', update);
   form.addEventListener('submit', event => { event.preventDefault(); update(); });
   document.querySelector('#checklist-shuffle')!.addEventListener('click', () => {
     state = { schema: 3, values: { ...state.values, ...suggestName(state.values.token) } };
     fillForm(); showErrors({}); render(); persist();
+    checkToken();
     status.textContent = `Suggested ${state.values.title}.`;
   });
 }

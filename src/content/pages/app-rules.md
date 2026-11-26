@@ -19,7 +19,7 @@ Apps contain no analytics, tracking or telemetry SDKs, and do not collect usage 
 
 ## Source you can inspect
 
-Each new app or update must publish its source under the GNU General Public License, version 2 or any later version (`GPL-2.0-or-later`). You can inspect the source and release history, modify the code and share it. All dependencies, including indirect ones, must have public source under compatible licenses that meet the [Debian Free Software Guidelines](https://www.debian.org/social_contract.html#guidelines). For a prebuilt dependency such as a Maven JAR, the developer must show that its source reproduces the binary used in the app.
+Developers publish the source for each new app or update under the GNU General Public License. You can inspect the source and release history, modify the code and share it. All dependencies, including indirect ones, must have public source under compatible licenses that meet the [Debian Free Software Guidelines](https://www.debian.org/social_contract.html#guidelines). For a prebuilt dependency such as a Maven JAR, the developer must show that its source reproduces the binary used in the app.
 
 ## Review before publication
 

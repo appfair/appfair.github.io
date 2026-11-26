@@ -107,8 +107,8 @@
         {
           "icon": "globe",
           "tone": "amber",
-          "title": "どこでも利用可能",
-          "body": "App Fairアプリは、Apple App StoreやGoogle Play Storeなどの商用アプリストアだけでなく、AltStoreやF-Droidなどの代替マーケットプレイスを通じても配布されます。"
+          "title": "アプリストア",
+          "body": "App Fair のアプリは Apple の App Store と Google Play からインストールできます。"
         },
         {
           "icon": "tag-off",
@@ -156,12 +156,9 @@
       }
     },
     "stores": {
-      "body": "各リリースはカタログに登録される前にApp Fairに提出され、審査と承認を経てから、App FairがApp StoreとGoogle Playに公開します。F-DroidとAltStoreでの配布は対応予定です。",
+      "body": "各リリースはカタログに登録される前にApp Fairに提出され、審査と承認を経てから、App FairがApp StoreとGoogle Playに公開します。",
       "app-store": "App Storeからダウンロード",
-      "play-store": "Google Playで手に入れよう",
-      "f-droid": "F-Droidで入手",
-      "altstore": "AltStoreで入手",
-      "roadmap": "対応予定"
+      "play-store": "Google Playで手に入れよう"
     },
     "cornerstones": {
       "eyebrow": "4つの基本要素",
@@ -197,7 +194,7 @@
         {
           "icon": "code",
           "title": "公開の場で開発",
-          "body": "開発者は GPL-2.0-or-later の下でアプリのソースコードを公開します。すべての依存ソフトウェアのソースコードも、互換性のある自由ソフトウェアライセンスの下で公開する必要があります。"
+          "body": "開発者は GNU 一般公衆ライセンスの下でアプリのソースコードを公開します。すべての依存ソフトウェアのソースコードも、互換性のある自由ソフトウェアライセンスの下で公開する必要があります。"
         },
         {
           "icon": "package-check",

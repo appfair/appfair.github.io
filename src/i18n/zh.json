@@ -107,8 +107,8 @@
         {
           "icon": "globe",
           "tone": "amber",
-          "title": "随处可用",
-          "body": "App Fair 应用程序通过商业应用商店（苹果应用商店和谷歌 Play 商店）以及 AltStore 和 F-Droid 等替代市场分发。"
+          "title": "应用商店",
+          "body": "可从 Apple App Store 或 Google Play 安装 App Fair 应用。"
         },
         {
           "icon": "tag-off",
@@ -156,12 +156,9 @@
       }
     },
     "stores": {
-      "body": "每个版本在进入目录前都会提交给 App Fair 进行审查和批准，随后由 App Fair 发布到 App Store 和 Google Play。通过 F-Droid 和 AltStore 分发已在规划中。",
+      "body": "每个版本在进入目录前都会提交给 App Fair 进行审查和批准，随后由 App Fair 发布到 App Store 和 Google Play。",
       "app-store": "在 App Store 下载",
-      "play-store": "在 Google Play 获取",
-      "f-droid": "在 F-Droid 获取",
-      "altstore": "在 AltStore 获取",
-      "roadmap": "规划中"
+      "play-store": "在 Google Play 获取"
     },
     "cornerstones": {
       "eyebrow": "四大基石",
@@ -197,7 +194,7 @@
         {
           "icon": "code",
           "title": "公开构建",
-          "body": "开发者以 GPL-2.0-or-later 许可发布应用源代码。所有依赖项的源代码都必须以兼容的自由软件许可证公开。"
+          "body": "开发者依据 GNU 通用公共许可证发布应用源代码。所有依赖项的源代码都必须以兼容的自由软件许可证公开。"
         },
         {
           "icon": "package-check",

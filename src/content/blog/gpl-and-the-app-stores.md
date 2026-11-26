@@ -1,5 +1,6 @@
 ---
 title:  "The GPL and Commercial App Stores: Time for a Reconsideration"
+description: "Why the App Fair distributes GPL-licensed apps through commercial stores and how Apple’s App Store terms affect the rights the GPL grants users."
 date:   2025-03-19
 tags: [news, blog, update, talks, gpl, license]
 layout: post

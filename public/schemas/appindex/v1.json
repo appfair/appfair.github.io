@@ -141,7 +141,7 @@
 
     "channel": {
       "type": "object",
-      "description": "A distribution channel entry with an identifier and catalog URL. Well-known channel keys include \"appleappstore\", \"googleplaystore\", \"fdroid\", \"altstore\", \"testflight\", \"amazonappstore\", \"homebrew\", \"flatpak\", and \"microsoftstore\".",
+      "description": "A distribution channel entry with an identifier and catalog URL. Well-known channel keys include \"appleappstore\", \"googleplaystore\", \"testflight\", \"amazonappstore\", \"homebrew\", \"flatpak\", and \"microsoftstore\".",
       "required": ["id", "url"],
       "properties": {
         "id": {
@@ -367,7 +367,7 @@
         "antiFeatures": {
           "type": "object",
           "additionalProperties": { "$ref": "#/$defs/label" },
-          "description": "Labels for the anti-feature keys apps declare in `antiFeatures` (F-Droid's vocabulary: Ads, Tracking, NonFreeNet, …)."
+          "description": "Labels for the anti-feature keys apps declare in `antiFeatures`, such as Ads, Tracking, and NonFreeNet."
         },
         "rank": {
           "type": "array",
@@ -482,7 +482,7 @@
         "antiFeatures": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Anti-feature keys (F-Droid's vocabulary), labeled by the document's `catalog.antiFeatures`."
+          "description": "Anti-feature keys labeled by the document's `catalog.antiFeatures`."
         },
         "developer": {
           "$ref": "#/$defs/developer",

@@ -34,7 +34,7 @@ try {
   assert.equal(await page.locator('.developer-nav a[href="/docs/checklist/"]').count(), 0);
   assert.equal(await page.locator('.guide-overview .flow-horizontal').isVisible(), true);
   assert.equal(await page.locator('.check-step').count(), 11);
-  assert.equal(await page.locator('#checklist-steps details, input[type=checkbox], #checklist-reset').count(), 0);
+  assert.equal(await page.locator('#submission-guide').locator('#checklist-steps details, input[type=checkbox], #checklist-reset').count(), 0);
   assert.equal(await page.locator('#submission-form').count(), 1);
   const assertIntegratedSteps = async p => {
     for (const id of stepIds) {
@@ -63,14 +63,14 @@ try {
     await page.getByRole('radio',{name:host,exact:true}).check();
     assert.equal(await page.locator('#step-local [data-local-host=macos]').isVisible(),host==='macOS');
     assert.equal(await page.locator('#step-local [data-local-host=other]').isVisible(),host!=='macOS');
-    assert.match(await page.locator('#step-local [data-local-platform=android] code').textContent(), /^day launch -p android-mdc$/m);
-    if (host === 'macOS') assert.match(await page.locator('#step-local [data-local-host=macos] code').textContent(), /^day launch -p ios-uikit$/m);
+    assert.match(await page.locator('#step-local [data-local-platform=android] code').textContent(), /^day launch -t android-material$/m);
+    if (host === 'macOS') assert.match(await page.locator('#step-local [data-local-host=macos] code').textContent(), /^day launch -t ios-uikit$/m);
     else assert.match(await page.locator('#step-local [data-local-host=other]').textContent(), /GitHub CI/);
   }
   await page.getByRole('radio',{name:'Windows',exact:true}).check();
   assert.equal(await page.locator('#ios-ci-note').isVisible(),true);
   assert.equal(await page.locator('#step-local .optional-command code').textContent(), 'code .');
-  assert.match(await page.locator('#step-local .optional-instructions').textContent(), /windows-xaml/);
+  assert.match(await page.locator('#step-local .optional-instructions').textContent(), /windows-winui/);
   const values={token:'Copper-Test',title:"Reader's $(echo example) Notes",host:'windows'};
   const commands=steps(values), text=guideValues(values);
   for (const node of await page.locator('[data-guide-value]').all()) assert.equal(await node.textContent(),text[await node.getAttribute('data-guide-value')]);

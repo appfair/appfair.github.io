@@ -13,17 +13,13 @@ export const site = {
     { id: 'discord', href: 'https://discord.com/invite/KkmhEQTmgh', color: '#5865F2', me: true },
     { id: 'reddit', href: 'https://www.reddit.com/r/appfair/', color: '#FF4500', me: true },
     { id: 'linkedin', href: 'https://www.linkedin.com/company/appfair/', color: '#0A66C2', me: true },
-    { id: 'twitter', href: 'https://twitter.com/TheAppFair', color: '#1DA1F2', me: true },
+    { id: 'twitter', href: 'https://x.com/@TheAppFair', color: '#1DA1F2', me: true },
     { id: 'email', href: 'mailto:contact@appfair.org', color: '#EAB308' },
     { id: 'rss', href: '/blog/rss.xml', color: '#F26522' },
   ],
-  stores: <{ id: string; badge: string; href?: string; live: boolean }[]>[
-    // The two live channels link to the App Fair Project's developer page on each store.
-    { id: 'app-store', badge: '/assets/badges/apple-app-store.svg', href: 'https://apps.apple.com/developer/the-app-fair-project-inc/id1638877580', live: true },
-    { id: 'play-store', badge: '/assets/badges/google-play-store.svg', href: 'https://play.google.com/store/apps/developer?id=The+App+Fair+Project', live: true },
-    // Roadmap channels have nothing to link to yet, so they render as plain badges.
-    { id: 'f-droid', badge: '/assets/badges/f-droid.svg', live: false },
-    { id: 'altstore', badge: '/assets/badges/altstore.svg', live: false },
+  stores: [
+    { id: 'app-store', badge: '/assets/badges/apple-app-store.svg', href: 'https://apps.apple.com/developer/the-app-fair-project-inc/id1638877580' },
+    { id: 'play-store', badge: '/assets/badges/google-play-store.svg', href: 'https://play.google.com/store/apps/developer?id=The+App+Fair+Project' },
   ],
 };
 

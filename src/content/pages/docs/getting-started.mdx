@@ -12,7 +12,9 @@ Read the [inclusion criteria](/docs/inclusion-criteria/) before starting. For a 
 
 Day compiles Rust against each platform’s native SDK. **Development Computer** selects your host’s tools and commands; it does not limit the platforms your app can support.
 
-Only local builds need local SDKs. GitHub CI supplies its own build environment.
+Install [Python 3.11 or later](https://www.python.org/downloads/) with `venv` and `pip` for the catalog submission step.
+
+Only local builds need local SDKs. GitHub CI supplies its own build environment. For Android, install `cargo-ndk` with `cargo install cargo-ndk` and follow the Android SDK setup link for the Rust target that matches your emulator.
 
 </SubmissionStep>
 
@@ -56,7 +58,7 @@ Create `Day-appfair.toml` beside `Day.toml`. Replace `YourToken` below with your
 id = "org.appfair.app.YourToken"
 ```
 
-This is a Day [build flavor](https://daybrite.dev/docs/flavors). The catalog uses `day --flavor appfair` when building your app. Keep the ID stable after publication. If this file already exists, review its settings instead of replacing it.
+This is a Day [build flavor](https://daybrite.dev/docs/how-to/flavors/). The catalog uses `day --flavor appfair` when building your app. Keep the ID stable after publication. If this file already exists, review its settings instead of replacing it.
 
 ### License and notices
 
@@ -82,7 +84,7 @@ Keep the generated `.github/workflows/ci.yml`. Add this job alongside its existi
       - uses: appfair/appfair-apps/.github/actions/appfair-lint@main
 ```
 
-Merge these settings into the existing `jobs.app.with` mapping. Keep the generated `day-version` setting if present, so CI uses the framework version selected by Day. Preserve the job’s generated permissions and other inputs.
+Merge these settings into the existing `jobs.app.with` mapping. The current template already sets `targets`, `scripts`, `locales`, `themes` and `deploy-web`. Keep the generated `day-deps` input, preflight checks and job permissions.
 
 ```yaml
       targets: all
@@ -113,7 +115,7 @@ The app’s CI publishes its ordinary release packages. The App Fair builds and 
 
 Day projects include mobile and desktop targets by default. The App Fair currently distributes only the iOS and Android versions through the Apple App Store and Google Play Store.
 
-Remove unwanted desktop targets from `[app] targets` in `Day.toml`; CI follows that list with `targets: all`. If you configure an explicit CI target list, update it too. Keep `ios-uikit` and `android-mdc` for both mobile stores, and keep `web-dom`: Day uses it to publish the required project website. Keeping at least one desktop target is useful for fast testing and iteration.
+Remove unwanted desktop targets from `[app] targets` in `Day.toml`; CI follows that list with `targets: all`. If you configure an explicit CI target list, update it too. Keep `ios-uikit` and `android-material` for both mobile stores, and keep `web-dom`: Day uses it to publish the required project website. Keeping at least one desktop target is useful for fast testing and iteration.
 
 `day launch` builds and runs the selected target. The dayscript walkthrough checks behavior and captures screenshots; keep `dayscript/demo.yaml` in step with UI changes.
 
@@ -121,7 +123,7 @@ Remove unwanted desktop targets from `[app] targets` in `Day.toml`; CI follows t
 
 <SubmissionStep id="repository" anchor="create-the-repository" integrated>
 
-The App Fair expects a public repository named <SubmissionValue field="repo" />. Source, license files and `Cargo.lock` belong in the initial commit; credentials and build output do not.
+The App Fair expects a public repository named <SubmissionValue field="repo" />. Day initializes the new Git repository. The commands below name its initial branch `main` and commit your source, license files and `Cargo.lock`. If you skipped local builds, run `cargo generate-lockfile` first. For an existing repository, use its established branch and remote.
 
 <p id="using-git-and-the-browser">Git manages the local history. The remote can be created in GitHub’s website or with the optional GitHub CLI.</p>
 
@@ -155,7 +157,7 @@ The standard Day app starts at version 0.1.0, build 1. The patch bump below prod
 
 <SubmissionStep id="submit" anchor="submit" integrated>
 
-The catalog entry, <SubmissionValue field="catalogFile" />, records the release tag, full commit hash and requested stores. The helper generates it from release metadata in a separate fork of the App Fair catalog. Link your first-app discussion in the pull request.
+The catalog entry, <SubmissionValue field="catalogFile" />, records the release tag, full commit hash and requested stores. The helper generates it from release metadata in a separate fork of the App Fair catalog. Use the default clone directory, `appfair-apps`. The helper uses that name to find the app’s publication flavor. Link your first-app discussion in the pull request.
 
 The App Fair rebuilds that pinned commit for review. Metadata corrections stay on the catalog pull request; source changes require a new app release and an updated submission.
 

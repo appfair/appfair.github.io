@@ -15,7 +15,7 @@ In this post, I hope to clarify and expand on some of the points and rebut some 
 
 ### Google's message that "Sideloading is Not Going Away" is clear, concise, and false
 
-Shortly after our post was published, Google aired an [episode](https://youtu.be/A7DEhW-mjdc?si=xQUkkS-tmp3aItZx&t=613) of their Android Developers Roundtable series, where they state unequivocally that "sideloading isn't going anywhere". They follow-up with a [blog post](https://android-developers.googleblog.com/2025/09/lets-talk-security-answering-your-top.html):
+Shortly after our post was published, Google aired an [episode](https://youtu.be/A7DEhW-mjdc?t=613) of their Android Developers Roundtable series, where they state unequivocally that "sideloading isn't going anywhere". They follow-up with a [blog post](https://android-developers.googleblog.com/2025/09/lets-talk-security-answering-your-top.html):
 
 > _**Does this mean sideloading is going away on Android?** Absolutely not. Sideloading is fundamental to Android and it is not going away._
 

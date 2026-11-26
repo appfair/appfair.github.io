@@ -8,10 +8,10 @@ author: "Marc Prud'hommeaux"
 
 I was recently interviewed about the App Fair Project for the FSFE's [Software Freedom Podcast](https://fsfe.org/news/podcast/2025/episode-30.en.html). I had a great discussion with Bonnie Mehring about many aspects of the App Fair's philosophy and mechanics.
 
-<audio controls="" style="width:100%;">
-    <source src="https://download.fsfe.org/audio/podcast/SFP030.opus?ref=player" type="audio/ogg;codecs=opus">
+<audio controls="" preload="none" style="width:100%;">
+    <source src="https://download.fsfe.org/audio/podcast/SFP030.opus" type="audio/ogg;codecs=opus">
     </source>
-    <source src="https://download.fsfe.org/audio/podcast/SFP030.mp3?ref=player" type="audio/mp3">
+    <source src="https://download.fsfe.org/audio/podcast/SFP030.mp3" type="audio/mp3">
     </source>
     Your browser does not support the audio element.
 </audio>

@@ -11,9 +11,9 @@ Last weekend I gave a talk at FOSDEM 2025 in Brussels titled: “A Free Software
 Here is the video and a transcript of the talk. I was overwhelmed by the support I received at FOSDEM, and would especially like to thank the Free Software Foundation Europe ([https://fsfe.org](https://fsfe.org)) for inviting me and hosting the Legal and Policy track there.
 
 <div class="video">
-  <video controls="controls" width="100%">
-    <source src="https://video.fosdem.org/2025/h1301/fosdem-2025-5488-a-free-software-app-store-for-ios-the-app-fair-project-s-perspective-on-the-dma.av1.webm#t=0.1" type="video/webm; codecs=&quot;av01.0.08M.08.0.110.01.01.01.0&quot;">
-    <source src="https://video.fosdem.org/2025/h1301/fosdem-2025-5488-a-free-software-app-store-for-ios-the-app-fair-project-s-perspective-on-the-dma.mp4#t=0.1" type="video/mp4">
+  <video preload="none" controls="controls" width="100%">
+    <source src="https://video.fosdem.org/2025/h1301/fosdem-2025-5488-a-free-software-app-store-for-ios-the-app-fair-project-s-perspective-on-the-dma.av1.webm" type="video/webm; codecs=&quot;av01.0.08M.08.0.110.01.01.01.0&quot;">
+    <source src="https://video.fosdem.org/2025/h1301/fosdem-2025-5488-a-free-software-app-store-for-ios-the-app-fair-project-s-perspective-on-the-dma.mp4" type="video/mp4">
   </video>
 </div>
 

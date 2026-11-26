@@ -25,7 +25,7 @@ These requirements apply to every app and update submitted through the App Fair.
 
 ## License and dependencies
 
-For each new app or update, publish the app’s source under the **GNU General Public License, version 2 or any later version (`GPL-2.0-or-later`)**. Include the GPL version 2 text and identify the “or later” grant in the app’s [license notices](/docs/getting-started/#license-and-notices).
+For each new app or update, publish the app’s source under the **GNU General Public License, version 2 or any later version**. Include the GPL version 2 text and identify the “or later” grant in the app’s [license notices](/docs/getting-started/#license-and-notices).
 
 Every direct and transitive dependency must have public source under a license that meets the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract.html#guidelines). This includes libraries, SDKs, plugins, native components and copied code. Dependencies may keep their own licenses. Their terms must permit distribution with the GPL-licensed app through its requested channels.
 

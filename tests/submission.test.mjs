@@ -31,10 +31,14 @@ test('local launch starts with Android and submission paths follow the host', ()
   for (const host of ['macos', 'linux', 'windows']) {
     const list = steps({ ...defaults, host });
     const command = list.find(s => s.id === 'local').command;
-    assert.match(command, /^day launch -p android-mdc$/m);
-    assert.match(command, /^day launch -p android-mdc --script dayscript\/demo.yaml$/m);
+    assert.match(command, /^day launch -t android-material$/m);
+    assert.match(command, /^day launch -t android-material --script dayscript\/demo.yaml$/m);
     assert.doesNotMatch(command, /day build/);
-    assert.match(list.find(s => s.id === 'submit').methods.find(m => m.id === 'gh').command, host === 'windows' ? /Scripts\/python.exe/ : /bin\/python/);
+    for (const { command: submit } of list.find(s => s.id === 'submit').methods) {
+      assert.match(submit, /^cd appfair-apps$/m);
+      assert.match(submit, host === 'windows' ? /^python -m venv /m : /^python3 -m venv /m);
+      assert.match(submit, host === 'windows' ? /Scripts\/python\.exe/ : /bin\/python/);
+    }
   }
   assert.ok(validate({ ...defaults, host: 'unknown' }).host);
 });

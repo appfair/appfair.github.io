@@ -14,6 +14,7 @@ try {
     requests.push(token);
     assert.equal(route.request().headers().authorization, undefined);
     assert.equal(route.request().headers().cookie, undefined);
+    assert.equal(route.request().headers().referer, undefined);
     if (token === 'slow-token') { slow = route; return; }
     if (token === 'offline-token') { await route.abort(); return; }
     const status = token === 'limited-token' ? 429 : token === 'server-error' ? 503 : ['taken-user', 'taken-org'].includes(token) ? 200 : 404;
@@ -23,14 +24,15 @@ try {
   assert.equal(await page.locator('h1').textContent(), 'Create an App Fair app');
   const input = page.locator('#app-token'), indicator = page.locator('#token-availability');
   const state = expected => page.waitForFunction(expected => document.querySelector('#token-availability').dataset.state === expected, expected);
-  await state('available');
-  assert.equal(await indicator.isVisible(), true);
-  assert.match(await indicator.getAttribute('title'), /appears available/);
-  const initialCount = requests.length;
+  await page.locator('[name=title]').fill('Initial name');
+  await page.waitForTimeout(800);
+  assert.deepEqual(requests, []);
   await input.fill('Typing-A'); await input.fill('Typing-B'); await input.fill('Typing-Final');
   await state('checking');
   await state('available');
-  assert.deepEqual(requests.slice(initialCount), ['typing-final']);
+  assert.deepEqual(requests, ['typing-final']);
+  assert.equal(await indicator.isVisible(), true);
+  assert.match(await indicator.getAttribute('title'), /appears available/);
   await input.fill('Taken-User'); await state('taken');
   await input.fill('Taken-Org'); await state('taken');
   assert.match(await indicator.textContent(), /already taken/);
@@ -59,8 +61,13 @@ try {
   await input.fill('Fresh-Token'); await state('available');
   await page.locator('#checklist-shuffle').click(); await state('available');
   assert.equal(requests.at(-1), (await input.inputValue()).toLowerCase());
-  await page.reload(); await state('available');
-  assert.equal(requests.at(-1), (await input.inputValue()).toLowerCase());
+  const beforeReload = requests.length;
+  const savedToken = await input.inputValue();
+  await page.reload();
+  await page.waitForTimeout(800);
+  assert.equal(await input.inputValue(), savedToken);
+  assert.equal(requests.length, beforeReload);
+  await input.fill('After-Reload'); await state('available');
   for (const width of [1440, 390]) {
     await page.setViewportSize({width, height: 1000});
     await input.scrollIntoViewIfNeeded();
