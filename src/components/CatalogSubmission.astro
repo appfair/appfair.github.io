@@ -1,0 +1,65 @@
+---
+import { useTranslations } from '../i18n';
+const { t, tr } = useTranslations(Astro.currentLocale);
+const m = tr<Record<string, string>>('catalogSubmission');
+---
+<section id="catalog-submission" hidden data-messages={JSON.stringify(m)} aria-label={m.prepare}>
+  <form id="catalog-lookup">
+    <label for="catalog-release">{m.release}</label>
+    <div class="lookup-row">
+      <input id="catalog-release" value="v0.1.1" required spellcheck="false" autocapitalize="off" aria-describedby="catalog-repo" />
+      <button class="btn btn-primary" type="submit">{m.prepare}</button>
+    </div>
+    <small id="catalog-repo"></small>
+  </form>
+  <p role="status" id="catalog-status"></p>
+  <form id="catalog-review" hidden>
+    <h3 id="catalog-kind"></h3>
+    <code id="catalog-path"></code>
+    <div id="catalog-options">
+      <label for="catalog-title">{m.title}</label>
+      <input id="catalog-title" maxlength="30" required />
+      <fieldset><legend>{m.stores}</legend><div id="catalog-channels"></div></fieldset>
+      <label for="catalog-discussion">{m.discussion}</label>
+      <input type="url" id="catalog-discussion" required placeholder="https://github.com/orgs/appfair/discussions/…" />
+    </div>
+    <pre id="catalog-diff" hidden></pre>
+    <label for="catalog-yaml">{m.yaml}</label>
+    <textarea id="catalog-yaml" rows="8" readonly spellcheck="false"></textarea>
+    <button class="btn btn-primary" type="submit">{m.open}</button>
+    <p id="catalog-handoff"></p>
+    <label for="catalog-notes">{m.prNotes}</label>
+    <textarea id="catalog-notes" rows="3" readonly spellcheck="false"></textarea>
+    <button class="btn btn-ghost" type="button" id="catalog-copy-notes">{m.copyNotes}</button>
+    <a id="catalog-editor" hidden target="_blank" rel="noopener noreferrer">{m.editor}</a>
+    <p role="status" id="catalog-copy-status" data-copied={t('copy.copied')} data-manual={t('copy.manual')}></p>
+  </form>
+</section>
+<script>
+  import { setupCatalogSubmission } from '../lib/catalog-submission-ui';
+  setupCatalogSubmission();
+</script>
+<style>
+  [hidden] { display: none !important; }
+  section { margin: 18px 0 24px; padding: clamp(16px, 3vw, 26px); border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+  .lookup-row { display: flex; align-items: stretch; flex-wrap: wrap; gap: 8px; }
+  .lookup-row input { flex: 1 1 15rem; }
+  label, legend { display: block; font-weight: 650; margin-bottom: 6px; }
+  input, textarea { box-sizing: border-box; min-width: 0; width: 100%; padding: 9px 12px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 7px; font: inherit; }
+  small, #catalog-handoff { color: var(--muted); }
+  small { display: block; margin-top: 6px; overflow-wrap: anywhere; }
+  form h3 { margin: 0 0 5px; }
+  #catalog-review { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 18px; }
+  #catalog-path { overflow-wrap: anywhere; }
+  #catalog-options, #catalog-yaml, #catalog-notes { margin-bottom: 12px; }
+  #catalog-options, label[for=catalog-yaml] { margin-top: 16px; }
+  fieldset { border: 0; padding: 0; margin: 12px 0; }
+  #catalog-channels { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  #catalog-channels :global(label) { display: inline-flex; align-items: center; gap: 7px; font-weight: 400; }
+  #catalog-channels :global(input) { width: auto; }
+  textarea, #catalog-diff { font: .88rem/1.5 ui-monospace, monospace; }
+  textarea { display: block; resize: vertical; }
+  #catalog-diff { white-space: pre-wrap; overflow-wrap: anywhere; }
+  #catalog-status:empty, #catalog-copy-status:empty { display: none; }
+  #catalog-editor { margin-inline-start: 10px; }
+</style>

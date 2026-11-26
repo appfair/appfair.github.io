@@ -12,6 +12,7 @@ try {
   page.on('pageerror', e => errors.push(String(e)));
   await page.goto(`${base}/docs/getting-started/`);
   await page.locator('#submission-guide[data-ready=true]').waitFor();
+  await page.locator('.manual-submission > summary').click();
   assert.equal(await page.getByRole('tablist').count(), 2);
   for (const [step, first, second] of [['repository','gh','web'],['submit','gh','web']]) {
     const firstTab = page.locator(`#${step}-tab-${first}`), secondTab = page.locator(`#${step}-tab-${second}`);

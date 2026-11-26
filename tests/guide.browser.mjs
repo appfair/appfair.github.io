@@ -34,7 +34,7 @@ try {
   assert.equal(await page.locator('.developer-nav a[href="/docs/checklist/"]').count(), 0);
   assert.equal(await page.locator('.guide-overview .flow-horizontal').isVisible(), true);
   assert.equal(await page.locator('.check-step').count(), 11);
-  assert.equal(await page.locator('#submission-guide').locator('#checklist-steps details, input[type=checkbox], #checklist-reset').count(), 0);
+  assert.equal(await page.locator('#submission-guide').locator('#checklist-steps details:not(.manual-submission), input[type=checkbox]:not(#catalog-channels input), #checklist-reset').count(), 0);
   assert.equal(await page.locator('#submission-form').count(), 1);
   const assertIntegratedSteps = async p => {
     for (const id of stepIds) {

@@ -12,7 +12,7 @@ Read the [inclusion criteria](/docs/inclusion-criteria/) before starting. For a 
 
 Day compiles Rust against each platform’s native SDK. **Development Computer** selects your host’s tools and commands; it does not limit the platforms your app can support.
 
-Install [Python 3.11 or later](https://www.python.org/downloads/) with `venv` and `pip` for the catalog submission step.
+If you plan to submit from the command line, install [Python 3.11 or later](https://www.python.org/downloads/) with `venv` and `pip`. The submission form runs in your browser.
 
 Only local builds need local SDKs. GitHub CI supplies its own build environment. For Android, install `cargo-ndk` with `cargo install cargo-ndk` and follow the Android SDK setup link for the Rust target that matches your emulator.
 
@@ -157,7 +157,7 @@ The standard Day app starts at version 0.1.0, build 1. The patch bump below prod
 
 <SubmissionStep id="submit" anchor="submit" integrated>
 
-The catalog entry, <SubmissionValue field="catalogFile" />, records the release tag, full commit hash and requested stores. The helper generates it from release metadata in a separate fork of the App Fair catalog. Use the default clone directory, `appfair-apps`. The helper uses that name to find the app’s publication flavor. Link your first-app discussion in the pull request.
+Once the release and its assets are public, enter its GitHub URL or a tag for <SubmissionValue field="repo" />. Review the catalog entry here, then propose the change on GitHub. For a first submission, include the link to your App Fair discussion. For an update, the guide changes the tag and commit in the existing entry.
 
 The App Fair rebuilds that pinned commit for review. Metadata corrections stay on the catalog pull request; source changes require a new app release and an updated submission.
 

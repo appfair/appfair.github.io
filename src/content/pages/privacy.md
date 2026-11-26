@@ -12,7 +12,7 @@ We use information you provide in correspondence, submissions, reports or donati
 
 We do not use visitor analytics or third-party trackers on appfair.org. Hosting and delivery providers may process IP addresses, browser or device information, request URLs and timestamps to deliver and secure the service. We do not sell personal information or share it for targeted advertising.
 
-The website stores preferences and developer-guide entries in your browser. You can clear them through your browser settings. When you edit an app token or ask the guide to suggest one, it sends the proposed token to GitHub to check its availability. When you play a talk or podcast, your browser requests the recording from its host. These services and the sites you choose to visit, including app stores and donation providers, process requests under their own privacy policies.
+The website stores preferences and developer-guide entries in your browser. You can clear them through your browser settings. When you edit an app token or ask the guide to suggest one, it sends the proposed token to GitHub to check its availability. When you choose to prepare a catalog submission, the guide reads the public release and catalog files from GitHub. You submit the pull request on GitHub using your own account. When you play a talk or podcast, your browser requests the recording from its host. These services and the sites you choose to visit, including app stores and donation providers, process requests under their own privacy policies.
 
 ## Developers
 
