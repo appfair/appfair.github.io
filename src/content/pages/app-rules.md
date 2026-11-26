@@ -19,7 +19,7 @@ Apps contain no analytics, tracking or telemetry SDKs, and do not collect usage 
 
 ## Source you can inspect
 
-The app’s source code and release history are public. You can inspect how it works, review changes and report problems. The app and all dependent software, including transitive dependencies, must have publicly available source under licenses that meet the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract.html#guidelines). Binary dependencies, including Maven JARs, are permitted only if their released binaries can provably be reproduced from that available source. Closed-source components cannot be bundled into an app.
+Each new app or update must publish its source under the GNU General Public License, version 2 or any later version (`GPL-2.0-or-later`). You can inspect the source and release history, modify the code and share it. All dependencies, including indirect ones, must have public source under compatible licenses that meet the [Debian Free Software Guidelines](https://www.debian.org/social_contract.html#guidelines). For a prebuilt dependency such as a Maven JAR, the developer must show that its source reproduces the binary used in the app.
 
 ## Review before publication
 

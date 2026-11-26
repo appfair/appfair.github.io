@@ -197,7 +197,7 @@
         {
           "icon": "code",
           "title": "Im Offenen bauen",
-          "body": "Ein Entwickler erstellt die App im eigenen Repository. Der Quellcode der App und aller Abhängigkeiten, einschließlich transitiver Abhängigkeiten, ist unter DFSG-konformen Lizenzen verfügbar."
+          "body": "Entwickler veröffentlichen den Quellcode der App unter GPL-2.0-or-later. Der Quellcode aller Abhängigkeiten muss unter kompatiblen freien Softwarelizenzen öffentlich zugänglich sein."
         },
         {
           "icon": "package-check",

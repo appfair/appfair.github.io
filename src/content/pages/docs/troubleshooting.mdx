@@ -71,7 +71,7 @@ import InstructionTabs from '../../../components/InstructionTabs.astro';
 
 **No workflow starts.** Confirm `.github/workflows/ci.yml` was committed, Actions is enabled in repository settings, and the push matches its branch or tag triggers. Fork PR workflows may need an authorized maintainer to approve their first run.
 
-**App Fair lint fails.** Read its file-and-line annotations. Common failures include missing license texts, missing SPDX notices and a malformed App Fair flavor. Include the applicable license texts and SPDX source notices for your chosen DFSG-compliant license. Retain any applicable license exceptions and third-party notices. Passing lint does not replace the dependency, license and binary reproducibility review required by the [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
+**App Fair lint fails.** Read its file-and-line annotations. For a license error, check the app’s `GPL-2.0-or-later` declaration, the [license text and source notices](/docs/getting-started/#license-and-notices), and any third-party notices. For a flavor error, check `Day-appfair.toml`. Reviewers also check dependencies, license compatibility and binary reproducibility against the [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
 
 **Only one platform fails.** Reproduce that target. Confirm the native SDK, generated project and workflow target list agree. A passing web build is not evidence that iOS packaging works.
 

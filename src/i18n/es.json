@@ -197,7 +197,7 @@
         {
           "icon": "code",
           "title": "Construir a la vista de todos",
-          "body": "Un desarrollador crea la aplicación en su propio repositorio, con el código fuente de la aplicación y de todas sus dependencias, incluidas las transitivas, disponible bajo licencias conformes con las DFSG."
+          "body": "Los desarrolladores publican el código fuente de la aplicación bajo GPL-2.0-or-later. El código fuente de cada dependencia debe ser público y tener una licencia de software libre compatible."
         },
         {
           "icon": "package-check",

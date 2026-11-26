@@ -6,7 +6,7 @@ layout: post
 author: "Marc Prud'hommeaux"
 ---
 
-> **Policy update (October 2026):** This article describes the licensing policy at publication. App Fair now accepts apps and all their dependencies under DFSG-compliant licenses, with available source and reproducibility evidence for binary dependencies. See the current [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
+> **Licensing policy update (November 2026).** In October the App Fair accepted any DFSG-compliant app license. New submissions and updates now require the GNU GPL version 2 or later (`GPL-2.0-or-later`). Dependencies may use compatible free-software licenses. See the current [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
 
 The App Fair Project requires that all apps that it distributes be licensed under the GNU General Public License. When the project builds and distributes these apps through to the commercial app store channels (e.g., the Apple App Store and the Google Play Store), the GPL is the one and only license that dictates the distribution terms. While many developers have historically chosen the GPL on moral grounds, the App Fair's choice of this license is more pragmatic: a strong copyleft license is the practical way to protect the community efforts that go into building these applications and defend them against bad actors.
 

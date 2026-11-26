@@ -197,7 +197,7 @@
         {
           "icon": "code",
           "title": "Construir às claras",
-          "body": "Um desenvolvedor cria o aplicativo em seu próprio repositório, com o código-fonte do aplicativo e de todas as dependências, incluindo as transitivas, disponível sob licenças compatíveis com as DFSG."
+          "body": "Os desenvolvedores publicam o código-fonte do aplicativo sob a GPL-2.0-or-later. O código-fonte de cada dependência deve ser público e ter uma licença de software livre compatível."
         },
         {
           "icon": "package-check",

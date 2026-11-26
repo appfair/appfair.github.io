@@ -197,7 +197,7 @@
         {
           "icon": "code",
           "title": "Construire au grand jour",
-          "body": "Un développeur crée l’application dans son propre dépôt, avec le code source de l’application et de toutes ses dépendances, y compris transitives, disponible sous des licences conformes aux DFSG."
+          "body": "Les développeurs publient le code source de l’application sous GPL-2.0-or-later. Le code source de chaque dépendance doit être public et distribué sous une licence libre compatible."
         },
         {
           "icon": "package-check",

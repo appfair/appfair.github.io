@@ -25,9 +25,9 @@ These requirements apply to every app and update submitted through the App Fair.
 
 ## License and dependencies
 
-The app’s source code must be publicly available under a license that meets the **[Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract.html#guidelines)**. No particular license is required. The DFSG are criteria for free-software licenses, not a license themselves.
+For each new app or update, publish the app’s source under the **GNU General Public License, version 2 or any later version (`GPL-2.0-or-later`)**. Include the GPL version 2 text and identify the “or later” grant in the app’s [license notices](/docs/getting-started/#license-and-notices).
 
-**All dependent software, including every transitive dependency, must also have publicly available source under a DFSG-compliant license.** This includes libraries, SDKs, plugins, native components and code copied into the project. Their terms must permit inclusion and distribution with the app under its chosen license; meeting the DFSG alone does not establish compatibility between licenses.
+Every direct and transitive dependency must have public source under a license that meets the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract.html#guidelines). This includes libraries, SDKs, plugins, native components and copied code. Dependencies may keep their own licenses. Their terms must permit distribution with the GPL-licensed app through its requested channels.
 
 - Binary dependencies, such as Maven JAR dependencies, are permitted only when their corresponding source is publicly available under a DFSG-compliant license and the released binary can provably be reproduced by building that source. Provide the exact source revision, build instructions and environment, and verification evidence linking the rebuilt output to the binary used. A source archive or a listing in a trusted package repository alone is insufficient.
 - Review the complete dependency tree for each release. Closed-source components and publicly visible code without a DFSG-compliant license are not permitted.
@@ -36,7 +36,7 @@ The app’s source code must be publicly available under a license that meets th
 
 These component requirements apply throughout the app’s dependency tree. They do not require the host operating system or its native system frameworks to be open source.
 
-Automated lint checks license files and source notices; it does not establish DFSG compliance, license compatibility, complete dependency coverage or binary reproducibility. Reviewers must verify those requirements using the source and evidence supplied for the release.
+Lint checks the app’s license declaration, license texts and source notices. Reviewers verify the rights to distribute the release, the licenses and compatibility of the full dependency tree, and the evidence for each binary dependency.
 
 ## Project and publication setup
 

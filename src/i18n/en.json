@@ -177,7 +177,7 @@
         {
           "icon": "code",
           "title": "Develop the app",
-          "body": "Developers maintain their apps in public repositories. The app and all its dependencies must use licenses that meet the Debian Free Software Guidelines."
+          "body": "Developers publish the app’s source under GPL-2.0-or-later. Every dependency must have public source under a compatible free-software license."
         },
         {
           "icon": "package-check",

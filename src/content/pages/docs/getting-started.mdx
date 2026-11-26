@@ -60,7 +60,13 @@ This is a Day [build flavor](https://daybrite.dev/docs/flavors). The catalog use
 
 ### License and notices
 
-Choose a license that meets the [license and dependency requirements](/docs/inclusion-criteria/#license-and-dependencies). Add its complete text in `LICENSE`, `COPYING` or another supported license file. Add a `// SPDX-License-Identifier:` comment naming the actual license expression within the first five lines of each Rust source file, including `build.rs`. Retain applicable third-party notices and exceptions. The standard scaffold does not supply these app license files or notices.
+Copy the [GPL version 2 text](https://github.com/appfair/appfair-apps/blob/main/.github/actions/appfair-lint/reference/LICENSE.txt) into the app repository as `LICENSE.txt`. Declare the app’s terms in the `[package]` section of `Cargo.toml` with this field.
+
+```toml
+license = "GPL-2.0-or-later"
+```
+
+For Rust files you license under those terms, put `// SPDX-License-Identifier: GPL-2.0-or-later` within the first five lines, including in `build.rs`. Keep third-party code’s own license identifiers and notices. Check that you have the rights to distribute it with the app under the [inclusion criteria](/docs/inclusion-criteria/#license-and-dependencies).
 
 ### GitHub Actions
 
